@@ -3,8 +3,11 @@
 namespace Rakhasa\LaravelUtility;
 
 use Spatie\LaravelPackageTools\Package;
+use Rakhasa\LaravelUtility\RepositoryServiceProvider;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Rakhasa\LaravelUtility\Commands\LaravelUtilityCommand;
+use Rakhasa\LaravelUtility\Commands\MakeRepositoryCommand;
+use Rakhasa\LaravelUtility\Commands\MakeServiceCommand;
 
 class LaravelUtilityServiceProvider extends PackageServiceProvider
 {
@@ -19,7 +22,15 @@ class LaravelUtilityServiceProvider extends PackageServiceProvider
             ->name('laravel-utility')
             ->hasConfigFile()
             ->hasViews()
+            ->hasTranslations()
             ->hasMigration('create_laravel-utility_table')
-            ->hasCommand(LaravelUtilityCommand::class);
+            ->hasCommands([LaravelUtilityCommand::class, MakeRepositoryCommand::class, MakeServiceCommand::class]);
+    }
+
+    public function register()
+    {
+        parent::register();
+
+        $this->app->register(RepositoryServiceProvider::class);
     }
 }

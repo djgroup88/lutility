@@ -1,0 +1,14 @@
+<?php
+
+namespace DummyNamespace;
+
+use Rakhasa\LaravelUtility\Repositories\BaseRepository;
+use Rakhasa\LaravelUtility\Contracts\DummyClassContract;
+
+class DummyClass extends BaseRepository implements DummyClassContract
+{
+    public function __construct()
+    {
+        //
+    }
+}
