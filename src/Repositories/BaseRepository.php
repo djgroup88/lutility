@@ -8,10 +8,11 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
-use Rakhasa\LaravelUtility\Contracts\BaseRepositoryContract;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Traits\ForwardsCalls;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Rakhasa\LaravelUtility\Contracts\BaseRepositoryContract;
 
 abstract class BaseRepository implements BaseRepositoryContract
 {
@@ -26,6 +27,8 @@ abstract class BaseRepository implements BaseRepositoryContract
      * @return BaseRepository
      */
     protected $with = null;
+
+    protected ?Authenticatable $actor = null;
 
     /**
      * @return Model
@@ -349,5 +352,17 @@ abstract class BaseRepository implements BaseRepositoryContract
     public function factory($count = null, $state = [])
     {
         return $this->model->factory($count, $state);
+    }
+
+    /**
+     * Set Actor
+     *
+     * @param Authenticatable $actor
+     * @return self
+     */
+    public function actingAs(Authenticatable $actor): self
+    {
+        $this->actor = $actor;
+        return $this;
     }
 }

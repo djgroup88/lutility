@@ -98,5 +98,19 @@ interface BaseRepositoryContract
      */
     public function with($with) : self;
 
-    public function paginate();
+    /**
+     * Paginate
+     *
+     * @param integer $perPage
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function paginate(int $perPage = 10): \Illuminate\Contracts\Pagination\LengthAwarePaginator;
+
+    /**
+     * Set Actor
+     *
+     * @param \Illuminate\Contracts\Auth\Authenticatable $actor
+     * @return self
+     */
+    public function actingAs(\Illuminate\Contracts\Auth\Authenticatable $actor): self;
 }

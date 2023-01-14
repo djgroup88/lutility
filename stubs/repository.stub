@@ -1,9 +1,9 @@
 <?php
 
-namespace DummyNamespace;
+namespace App\Repositories;
 
 use Rakhasa\LaravelUtility\Repositories\BaseRepository;
-use Rakhasa\LaravelUtility\Contracts\DummyClassContract;
+use App\Contracts\Repositories\DummyClassContract;
 
 class DummyClass extends BaseRepository implements DummyClassContract
 {
