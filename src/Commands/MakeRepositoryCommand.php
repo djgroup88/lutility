@@ -34,18 +34,17 @@ class MakeRepositoryCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/../../stubs/repository.stub';
+        return __DIR__.'/../../stubs/repository.stub';
     }
 
     /**
      * Get the default namespace for the class.
      *
-     * @param string $rootNamespace
-     *
+     * @param  string  $rootNamespace
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Repositories';
+        return $rootNamespace.'\Repositories';
     }
 }

@@ -2,17 +2,17 @@
 
 namespace Rakhasa\LaravelUtility\Repositories;
 
-use Exception;
 use BadMethodCallException;
-use Illuminate\Support\Str;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Traits\ForwardsCalls;
+use Exception;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Rakhasa\LaravelUtility\Contracts\BaseRepositoryContract;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Support\Traits\ForwardsCalls;
+use Rakhasa\LaravelUtility\Contracts\Repositories\BaseRepositoryContract;
 
 abstract class BaseRepository implements BaseRepositoryContract
 {
@@ -45,7 +45,7 @@ abstract class BaseRepository implements BaseRepositoryContract
     {
         $builder = $this->make()->newQuery();
 
-        if($this->with){
+        if ($this->with) {
             $builder->with($this->with);
         }
 
@@ -57,7 +57,6 @@ abstract class BaseRepository implements BaseRepositoryContract
      * and receive the id back.
      *
      * @param $model
-     *
      * @return mixed
      */
     protected function getId($model): int
@@ -68,11 +67,10 @@ abstract class BaseRepository implements BaseRepositoryContract
     /**
      * mimic eloquent with() function
      *
-     * @param  mixed $with
-     *
+     * @param  mixed  $with
      * @return BaseRepository
      */
-    public function with($with) : BaseRepository
+    public function with($with): BaseRepository
     {
         $this->with = $with;
 
@@ -82,7 +80,7 @@ abstract class BaseRepository implements BaseRepositoryContract
     /**
      * load single model relation
      *
-     * @param Model $model
+     * @param  Model  $model
      * @return Model
      */
     public function withModel(Model $model): Model
@@ -95,7 +93,6 @@ abstract class BaseRepository implements BaseRepositoryContract
      * and receive the model back.
      *
      * @param $model
-     *
      * @return \Illuminate\Database\Eloquent\Model|mixed|null
      */
     public function getOneById($model)
@@ -108,7 +105,6 @@ abstract class BaseRepository implements BaseRepositoryContract
      * and receive the model back but return exception if not found.
      *
      * @param $model
-     *
      * @return \Illuminate\Database\Eloquent\Model|mixed|null
      */
     public function getOneByIdOrFail($model)
@@ -122,9 +118,8 @@ abstract class BaseRepository implements BaseRepositoryContract
      * Pass in an array of input, and either an existing model or an id. Passing null to the
      * second argument will create a new instance.
      *
-     * @param array $input
-     * @param null  $model
-     *
+     * @param  array  $input
+     * @param  null  $model
      * @return \Illuminate\Database\Eloquent\Model|mixed|null
      */
     public function persist(array $input, $model = null)
@@ -149,26 +144,28 @@ abstract class BaseRepository implements BaseRepositoryContract
     /**
      * create function
      *
-     * @param array $data
+     * @param  array  $data
      * @return Model
      */
-    public function create(array $data) : ?Model {
+    public function create(array $data): ?Model
+    {
         return $this->model->create($data);
     }
 
     /**
      * update function
      *
-     * @param Model $model
-     * @param array $data
-     * @return boolean|null
+     * @param  Model  $model
+     * @param  array  $data
+     * @return bool|null
      */
-    public function update($model, array $data): ?bool {
+    public function update($model, array $data): ?bool
+    {
         if ($model instanceof Model) {
             return $model->update($data);
         }
 
-        $id    = $model;
+        $id = $model;
         $model = $this->make();
 
         return $model->newQuery()
@@ -180,8 +177,8 @@ abstract class BaseRepository implements BaseRepositoryContract
      * Delete the model.
      *
      * @param $model
-     *
      * @return bool|null
+     *
      * @throws \Exception
      */
     public function delete($model): ?bool
@@ -190,7 +187,7 @@ abstract class BaseRepository implements BaseRepositoryContract
             return $model->delete();
         }
 
-        $id    = $model;
+        $id = $model;
         $model = $this->make();
 
         return $model->newQuery()
@@ -201,6 +198,7 @@ abstract class BaseRepository implements BaseRepositoryContract
     /**
      * Helper method for retrieving models by a column or array of columns.
      * Example:
+     *
      * @method mixed getBy(id, $id)
      * @method mixed getBy(['id'=>$id, 'name'=>$name])
      * @method mixed getBy(['id'=>[$id1, $id2], 'name'=>$name])
@@ -210,12 +208,14 @@ abstract class BaseRepository implements BaseRepositoryContract
     public function getBy(): ?Collection
     {
         $model = $this->dynamicWhere(func_get_args());
+
         return $model->get();
     }
 
     /**
      * Helper method for retrieving a model by a column or array of columns.
      * Example:
+     *
      * @method mixed getOneBy(id, $id)
      * @method mixed getOneBy(['id'=>$id, 'name'=>$name])
      * @method mixed getOneBy(['id'=>[$id1, $id2], 'name'=>$name])
@@ -225,12 +225,14 @@ abstract class BaseRepository implements BaseRepositoryContract
     public function getOneBy(): ?Model
     {
         $model = $this->dynamicWhere(func_get_args());
+
         return $model->first();
     }
 
     /**
      * Helper method for retrieving a model by a column or array of columns and throw exception if not found.
      * Example:
+     *
      * @method mixed getOneBy(id, $id)
      * @method mixed getOneBy(['id'=>$id, 'name'=>$name])
      * @method mixed getOneBy(['id'=>[$id1, $id2], 'name'=>$name])
@@ -240,6 +242,7 @@ abstract class BaseRepository implements BaseRepositoryContract
     public function getOneByOrFail(): ?Model
     {
         $model = $this->dynamicWhere(func_get_args());
+
         return $model->firstOrFail();
     }
 
@@ -248,16 +251,16 @@ abstract class BaseRepository implements BaseRepositoryContract
         $model = $this->query();
 
         if (count($args) === 2) {
-            list($column, $value) = $args;
+            [$column, $value] = $args;
             $method = is_array($value) ? 'whereIn' : 'where';
-            $model  = $model->$method($column, $value);
+            $model = $model->$method($column, $value);
         } elseif (count($args) === 1) {
             $columns = $args[0];
 
             if (is_array($columns)) {
                 foreach ($columns as $column => $value) {
                     $method = is_array($value) ? 'whereIn' : 'where';
-                    $model  = $model->$method($column, $value);
+                    $model = $model->$method($column, $value);
                 }
             }
         }
@@ -268,9 +271,8 @@ abstract class BaseRepository implements BaseRepositoryContract
     /**
      * Magic method handling for dynamic functions such as getByAddress() or getOneById().
      *
-     * @param string $name
-     * @param array  $arguments
-     *
+     * @param  string  $name
+     * @param  array  $arguments
      * @return \Illuminate\Database\Eloquent\Collection|mixed|null
      */
     public function __call(string $name, array $arguments = [])
@@ -294,7 +296,7 @@ abstract class BaseRepository implements BaseRepositoryContract
             return \call_user_func([$this->make(), 'where'], $column, $arguments[0])->first();
         }
 
-        if (!method_exists($this, $name)) {
+        if (! method_exists($this, $name)) {
             throw new BadMethodCallException(sprintf(
                 'Call to undefined method %s::%s()', $this::class, $name
             ));
@@ -304,11 +306,11 @@ abstract class BaseRepository implements BaseRepositoryContract
     /**
      * Perform a transaction.
      *
-     * @param \Closure    $callback
-     * @param int         $attempts
-     * @param string|null $connection
-     *
+     * @param  \Closure  $callback
+     * @param  int  $attempts
+     * @param  string|null  $connection
      * @return mixed
+     *
      * @throws \Exception|\Throwable
      */
     public static function transaction(\Closure $callback, int $attempts = 1, string $connection = null)
@@ -323,8 +325,8 @@ abstract class BaseRepository implements BaseRepositoryContract
     /**
      * paginate function
      *
-     * @param array $where
-     * @param integer $perPage
+     * @param  array  $where
+     * @param  int  $perPage
      * @return LengthAwarePaginator
      */
     public function paginate(int $perPage = 15): LengthAwarePaginator
@@ -357,12 +359,13 @@ abstract class BaseRepository implements BaseRepositoryContract
     /**
      * Set Actor
      *
-     * @param Authenticatable $actor
+     * @param  Authenticatable  $actor
      * @return self
      */
     public function actingAs(Authenticatable $actor): self
     {
         $this->actor = $actor;
+
         return $this;
     }
 }

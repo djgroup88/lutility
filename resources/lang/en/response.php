@@ -8,5 +8,5 @@ return [
     'forbidden' => 'Forbidden',
     'not_found' => 'Not Found',
     'unprocessable_entity' => 'Unprocessable Entity',
-    'internal_server_error' => 'Internal Serve Error'
+    'internal_server_error' => 'Internal Serve Error',
 ];

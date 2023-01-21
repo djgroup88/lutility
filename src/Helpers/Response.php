@@ -21,8 +21,8 @@ class Response
     /**
      * Call Route
      *
-     * @param string $route
-     * @param mixed $param
+     * @param  string  $route
+     * @param  mixed  $param
      * @return static
      */
     public static function route(string $route, $param = []): static
@@ -36,7 +36,7 @@ class Response
     /**
      * Success Response
      *
-     * @param string $message
+     * @param  string  $message
      * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
      */
     public static function success(string $message = ''): \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
@@ -49,7 +49,7 @@ class Response
     /**
      * Error Reponse
      *
-     * @param string $message
+     * @param  string  $message
      * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
      */
     public static function error(string $message = ''): \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse

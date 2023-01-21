@@ -19,16 +19,16 @@ class ApiResponse
         'forbidden' => 403,
         'not_found' => 404,
         'unprocessable_entity' => 422,
-        'internal_server_error' => 500
+        'internal_server_error' => 500,
     ];
 
     /**
      * Base of json response
      *
-     * @param string $message
-     * @param boolean $status
-     * @param mixed $data
-     * @param integer $statusCode
+     * @param  string  $message
+     * @param  bool  $status
+     * @param  mixed  $data
+     * @param  int  $statusCode
      * @return JsonResponse
      */
     private static function base(string $message, bool $status, $data, int $statusCode): JsonResponse
@@ -36,15 +36,15 @@ class ApiResponse
         return response()->json([
             'status' => $status,
             'data' => $data,
-            'message' => $message
+            'message' => $message,
         ], $statusCode);
     }
 
     /**
      * Success response
      *
-     * @param string $message
-     * @param mixed $data
+     * @param  string  $message
+     * @param  mixed  $data
      * @return JsonResponse
      */
     public static function success(string $message = '', $data = null): JsonResponse
@@ -57,8 +57,8 @@ class ApiResponse
     /**
      * Created response
      *
-     * @param string $message
-     * @param mixed $data
+     * @param  string  $message
+     * @param  mixed  $data
      * @return JsonResponse
      */
     public static function created(string $message = '', $data = null): JsonResponse
@@ -71,8 +71,8 @@ class ApiResponse
     /**
      * Bad Request Response
      *
-     * @param string $message
-     * @param mixed $data
+     * @param  string  $message
+     * @param  mixed  $data
      * @return JsonResponse
      */
     public static function badRequest(string $message = '', $data = null): JsonResponse
@@ -85,8 +85,8 @@ class ApiResponse
     /**
      * Unauthorized Response
      *
-     * @param string $message
-     * @param mixed $data
+     * @param  string  $message
+     * @param  mixed  $data
      * @return JsonResponse
      */
     public static function unauthorized(string $message = '', $data = null): JsonResponse
@@ -99,8 +99,8 @@ class ApiResponse
     /**
      * Forbidden Response
      *
-     * @param string $message
-     * @param mixed $data
+     * @param  string  $message
+     * @param  mixed  $data
      * @return JsonResponse
      */
     public static function forbidden(string $message = '', $data = null): JsonResponse
@@ -113,8 +113,8 @@ class ApiResponse
     /**
      * Not Found Response
      *
-     * @param string $message
-     * @param mixed $data
+     * @param  string  $message
+     * @param  mixed  $data
      * @return JsonResponse
      */
     public static function notFound(string $message = '', $data = null): JsonResponse
@@ -127,8 +127,8 @@ class ApiResponse
     /**
      * Unprocessable Entity
      *
-     * @param string $message
-     * @param mixed $data
+     * @param  string  $message
+     * @param  mixed  $data
      * @return JsonResponse
      */
     public static function unprocessableEntity(string $message = '', $data = null): JsonResponse
@@ -141,8 +141,8 @@ class ApiResponse
     /**
      * Server Error Response
      *
-     * @param string $message
-     * @param mixed $data
+     * @param  string  $message
+     * @param  mixed  $data
      * @return JsonResponse
      */
     public static function serverError(string $message = '', $data = null): JsonResponse
