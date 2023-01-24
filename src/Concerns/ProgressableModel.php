@@ -26,12 +26,6 @@ trait ProgressableModel
      */
     public function createProgress(string $actorType, string $actorId, string $description): Progress
     {
-        return $this->progress()->create([
-            'progressable_id' => $this->id,
-            'progressable_type' => $this::class,
-            'description' => $description,
-            'actor_type' => $actorType,
-            'actor_id' => $actorId
-        ]);
+        return Progress::generate($this->id, $this::class, $description, $actorType, $actorId);
     }
 }

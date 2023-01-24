@@ -29,6 +29,27 @@ class Progress extends Model
     }
 
     /**
+     * Generate Progress
+     *
+     * @param string $modelId
+     * @param string $modelType
+     * @param string $description
+     * @param string $actorType
+     * @param string $actorId
+     * @return self
+     */
+    public static function generate(string $modelId, string $modelType, string $description, string $actorType, string $actorId): self
+    {
+        return self::create([
+            'progressable_id' => $modelId,
+            'progressable_type' => $modelType,
+            'description' => $description,
+            'actor_type' => $actorType,
+            'actor_id' => $actorId
+        ]);
+    }
+
+    /**
      * Set Progress to Complete
      *
      * @return void
@@ -37,5 +58,15 @@ class Progress extends Model
     {
         $this->completed_at = now();
         $this->save();
+    }
+
+    /**
+     * Get Actor Model
+     *
+     * @return Model
+     */
+    public function getActorModel(): Model
+    {
+        return $this->actor_type::find($this->actor_id);
     }
 }
