@@ -4,11 +4,12 @@ namespace Rakhasa\LaravelUtility\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Rakhasa\LaravelUtility\Concerns\HasPermissions;
 use Rakhasa\LaravelUtility\Concerns\HasPackageFactory;
 
 class Role extends Model
 {
-    use HasPackageFactory, HasUuids;
+    use HasPackageFactory, HasUuids, HasPermissions;
 
     /**
      * The attributes that aren't mass assignable.
