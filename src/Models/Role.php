@@ -26,7 +26,7 @@ class Role extends Model
      */
     public function scopeSuperAdmin(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
     {
-        return $query->where('level', config('permission.level.superadmin'));
+        return $query->where('level', config('permission.role.level.superadmin'));
     }
 
     /**
@@ -37,7 +37,7 @@ class Role extends Model
      */
     public function scopeAdmin(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
     {
-        return $query->where('level', config('permission.level.admin'));
+        return $query->where('level', config('permission.role.level.admin'));
     }
 
     /**
@@ -48,6 +48,6 @@ class Role extends Model
      */
     public function scopeUser(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
     {
-        return $query->where('level', config('permission.level.user'));
+        return $query->where('level', config('permission.role.level.user'));
     }
 }

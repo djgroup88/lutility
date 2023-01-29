@@ -23,7 +23,7 @@ class LaravelUtilityServiceProvider extends PackageServiceProvider
             ->hasConfigFile('permission')
             ->hasViews()
             ->hasTranslations()
-            ->hasMigrations(['create_roles_table', 'create_files_table', 'create_settings_table'])
+            ->hasMigrations(['create_roles_table', 'create_permissions_table', 'create_files_table', 'create_settings_table'])
             ->hasCommands([MakeRepositoryCommand::class, MakeServiceCommand::class, SyncSettingCommand::class]);
     }
 
