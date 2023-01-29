@@ -1,8 +1,8 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Contracts\Repositories;
+namespace Rakhasa\Lutility\Contracts\Repositories;
 
-use Rakhasa\LaravelUtility\Contracts\Repositories\BaseRepositoryContract;
+use Rakhasa\Lutility\Contracts\Repositories\BaseRepositoryContract;
 
 interface ProgressRepositoryContract extends BaseRepositoryContract
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Database\Factories;
+namespace Rakhasa\Lutility\Database\Factories;
 
 use Illuminate\Support\Str;
-use Rakhasa\LaravelUtility\Models\Progress;
+use Rakhasa\Lutility\Models\Progress;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProgressFactory extends Factory

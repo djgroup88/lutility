@@ -1,10 +1,10 @@
 {
-    "name": "rakhasa/laravel-utility",
-    "description": "This is my package laravel-utility",
+    "name": "rakhasa/lutility",
+    "description": "This is my package lutility",
     "keywords": [
         "rakhasa",
         "laravel",
-        "laravel-utility"
+        "lutility"
     ],
     "homepage": "https://github.com/rakhasa/laravel-utility",
     "license": "MIT",
@@ -33,13 +33,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Rakhasa\\LaravelUtility\\": "src",
-            "Rakhasa\\LaravelUtility\\Database\\Factories\\": "database/factories"
+            "Rakhasa\\Lutility\\": "src",
+            "Rakhasa\\Lutility\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rakhasa\\LaravelUtility\\Tests\\": "tests"
+            "Rakhasa\\Lutility\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -56,10 +56,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Rakhasa\\LaravelUtility\\LaravelUtilityServiceProvider"
+                "Rakhasa\\Lutility\\LutilityServiceProvider"
             ],
             "aliases": {
-                "LaravelUtility": "Rakhasa\\LaravelUtility\\Facades\\LaravelUtility"
+                "Lutility": "Rakhasa\\Lutility\\Facades\\Lutility"
             }
         }
     },

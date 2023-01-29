@@ -1,15 +1,15 @@
-# This is my package laravel-utility
+# This is my package lutility
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/rakhasa/laravel-utility.svg?style=flat-square)](https://packagist.org/packages/rakhasa/laravel-utility)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/rakhasa/laravel-utility/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/rakhasa/laravel-utility/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/rakhasa/laravel-utility/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/rakhasa/laravel-utility/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/rakhasa/laravel-utility.svg?style=flat-square)](https://packagist.org/packages/rakhasa/laravel-utility)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/rakhasa/lutility.svg?style=flat-square)](https://packagist.org/packages/rakhasa/lutility)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/rakhasa/lutility/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/rakhasa/lutility/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/rakhasa/lutility/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/rakhasa/lutility/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/rakhasa/lutility.svg?style=flat-square)](https://packagist.org/packages/rakhasa/lutility)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-utility.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-utility)
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/lutility.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/lutility)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
@@ -20,20 +20,20 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer:
 
 ```bash
-composer require rakhasa/laravel-utility
+composer require rakhasa/lutility
 ```
 
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-utility-migrations"
+php artisan vendor:publish --tag="lutility-migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-utility-config"
+php artisan vendor:publish --tag="lutility-config"
 ```
 
 This is the contents of the published config file:
@@ -46,13 +46,13 @@ return [
 Optionally, you can publish the views using
 
 ```bash
-php artisan vendor:publish --tag="laravel-utility-views"
+php artisan vendor:publish --tag="lutility-views"
 ```
 
 ## Usage
 
 ```php
-$laravelUtility = new Rakhasa\LaravelUtility();
+$laravelUtility = new Rakhasa\Lutility();
 echo $laravelUtility->echoPhrase('Hello, Rakhasa!');
 ```
 

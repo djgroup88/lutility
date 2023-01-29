@@ -1,14 +1,14 @@
 <?php
 
-namespace Rakhasa\LaravelUtility;
+namespace Rakhasa\Lutility;
 
-use Rakhasa\LaravelUtility\Commands\MakeRepositoryCommand;
-use Rakhasa\LaravelUtility\Commands\MakeServiceCommand;
-use Rakhasa\LaravelUtility\Commands\SyncSettingCommand;
+use Rakhasa\Lutility\Commands\MakeRepositoryCommand;
+use Rakhasa\Lutility\Commands\MakeServiceCommand;
+use Rakhasa\Lutility\Commands\SyncSettingCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class LaravelUtilityServiceProvider extends PackageServiceProvider
+class LutilityServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -18,7 +18,7 @@ class LaravelUtilityServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('laravel-utility')
+            ->name('lutility')
             ->hasConfigFile('setting')
             ->hasConfigFile('permission')
             ->hasViews()

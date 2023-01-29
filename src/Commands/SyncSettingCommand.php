@@ -1,9 +1,9 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Commands;
+namespace Rakhasa\Lutility\Commands;
 
 use Illuminate\Console\Command;
-use Rakhasa\LaravelUtility\Models\Setting;
+use Rakhasa\Lutility\Models\Setting;
 
 class SyncSettingCommand extends Command
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Repositories;
+namespace Rakhasa\Lutility\Repositories;
 
 use BadMethodCallException;
 use Exception;
@@ -12,7 +12,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\ForwardsCalls;
-use Rakhasa\LaravelUtility\Contracts\Repositories\BaseRepositoryContract;
+use Rakhasa\Lutility\Contracts\Repositories\BaseRepositoryContract;
 
 abstract class BaseRepository implements BaseRepositoryContract
 {

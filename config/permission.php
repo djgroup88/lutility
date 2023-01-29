@@ -13,7 +13,7 @@ return [
     */
 
     'role' => [
-        'model' => \Rakhasa\LaravelUtility\Models\Role::class,
+        'model' => \Rakhasa\Lutility\Models\Role::class,
         'level' => [
             'superadmin' => 1,
             'admin' => 2,
@@ -32,7 +32,7 @@ return [
     */
 
     'permission' => [
-        'model' => \Rakhasa\LaravelUtility\Models\Permission::class,
+        'model' => \Rakhasa\Lutility\Models\Permission::class,
         'list' => [
             [
                 'name' => 'profile',

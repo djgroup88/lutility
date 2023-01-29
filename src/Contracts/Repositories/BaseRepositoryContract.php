@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Contracts\Repositories;
+namespace Rakhasa\Lutility\Contracts\Repositories;
 
 use Closure;
 use Illuminate\Database\Eloquent\Model;

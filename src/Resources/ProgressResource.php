@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Resources;
+namespace Rakhasa\Lutility\Resources;
 
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;

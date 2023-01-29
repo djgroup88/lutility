@@ -1,8 +1,8 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Concerns;
+namespace Rakhasa\Lutility\Concerns;
 
-use Rakhasa\LaravelUtility\Models\Progress;
+use Rakhasa\Lutility\Models\Progress;
 
 trait ProgressableModel
 {

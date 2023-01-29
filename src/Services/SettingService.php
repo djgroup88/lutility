@@ -1,9 +1,9 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Services;
+namespace Rakhasa\Lutility\Services;
 
 use ArrayAccess;
-use Rakhasa\LaravelUtility\Models\Setting;
+use Rakhasa\Lutility\Models\Setting;
 
 class SettingService implements ArrayAccess
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Models;
+namespace Rakhasa\Lutility\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

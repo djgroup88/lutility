@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Concerns;
+namespace Rakhasa\Lutility\Concerns;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Str;

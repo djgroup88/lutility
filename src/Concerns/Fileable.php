@@ -1,11 +1,11 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Concerns;
+namespace Rakhasa\Lutility\Concerns;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use Rakhasa\LaravelUtility\Models\File;
+use Rakhasa\Lutility\Models\File;
 
 trait Fileable
 {

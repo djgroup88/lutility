@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Concerns;
+namespace Rakhasa\Lutility\Concerns;
 
 trait HasPermissions
 {
@@ -12,6 +12,24 @@ trait HasPermissions
     public function permissions(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(config('permission.permission.model'));
+    }
+
+    /**
+     * Check if Role Role Has Permission to Certain Action
+     *
+     * @param string $name
+     * @param string $action
+     * @return boolean
+     */
+    public function hasPermissionTo(string $name, string $action): bool
+    {
+        if ($this->isSuperAdmin()) {
+            return true;
+        }
+
+        $permission = $this->permissions()->where('name', $name)->first();
+
+        return isset($permission->$action) && $permission->$action;
     }
 
     /**

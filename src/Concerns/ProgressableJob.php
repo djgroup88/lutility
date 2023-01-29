@@ -1,9 +1,9 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Concerns;
+namespace Rakhasa\Lutility\Concerns;
 
-use Rakhasa\LaravelUtility\Contracts\Repositories\ProgressRepositoryContract;
-use Rakhasa\LaravelUtility\Models\Progress;
+use Rakhasa\Lutility\Contracts\Repositories\ProgressRepositoryContract;
+use Rakhasa\Lutility\Models\Progress;
 
 trait ProgressableJob
 {

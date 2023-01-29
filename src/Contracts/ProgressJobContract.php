@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Contracts;
+namespace Rakhasa\Lutility\Contracts;
 
 interface ProgressJobContract
 {

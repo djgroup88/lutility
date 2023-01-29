@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use Rakhasa\LaravelUtility\Repositories\BaseRepository;
+use Rakhasa\Lutility\Repositories\BaseRepository;
 use App\Contracts\Repositories\DummyClassContract;
 
 class DummyClass extends BaseRepository implements DummyClassContract

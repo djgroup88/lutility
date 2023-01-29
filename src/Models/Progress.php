@@ -1,11 +1,11 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Models;
+namespace Rakhasa\Lutility\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Rakhasa\LaravelUtility\Concerns\HasPackageFactory;
-use Rakhasa\LaravelUtility\Contracts\ProgressModelContract;
+use Rakhasa\Lutility\Concerns\HasPackageFactory;
+use Rakhasa\Lutility\Contracts\ProgressModelContract;
 
 class Progress extends Model
 {

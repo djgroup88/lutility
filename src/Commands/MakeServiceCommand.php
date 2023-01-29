@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Commands;
+namespace Rakhasa\Lutility\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 

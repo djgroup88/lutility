@@ -1,11 +1,11 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Models;
+namespace Rakhasa\Lutility\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Rakhasa\LaravelUtility\Concerns\HasPermissions;
-use Rakhasa\LaravelUtility\Concerns\HasPackageFactory;
+use Rakhasa\Lutility\Concerns\HasPermissions;
+use Rakhasa\Lutility\Concerns\HasPackageFactory;
 
 class Role extends Model
 {
@@ -49,5 +49,15 @@ class Role extends Model
     public function scopeUser(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
     {
         return $query->where('level', config('permission.role.level.user'));
+    }
+
+    /**
+     * Check if Role is Super Admin
+     *
+     * @return boolean
+     */
+    public function isSuperAdmin(): bool
+    {
+        return $this->level == config('permission.role.level.superadmin');
     }
 }

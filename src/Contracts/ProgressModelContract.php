@@ -1,8 +1,8 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Contracts;
+namespace Rakhasa\Lutility\Contracts;
 
-use Rakhasa\LaravelUtility\Models\Progress;
+use Rakhasa\Lutility\Models\Progress;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 interface ProgressModelContract

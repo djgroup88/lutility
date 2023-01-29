@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Helpers;
+namespace Rakhasa\Lutility\Helpers;
 
 use Illuminate\Http\JsonResponse;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace Rakhasa\LaravelUtility\Repositories;
+namespace Rakhasa\Lutility\Repositories;
 
-use Rakhasa\LaravelUtility\Models\Progress;
-use Rakhasa\LaravelUtility\Repositories\BaseRepository;
+use Rakhasa\Lutility\Models\Progress;
+use Rakhasa\Lutility\Repositories\BaseRepository;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Rakhasa\LaravelUtility\Contracts\Repositories\ProgressRepositoryContract;
+use Rakhasa\Lutility\Contracts\Repositories\ProgressRepositoryContract;
 
 class ProgressRepository extends BaseRepository implements ProgressRepositoryContract
 {
