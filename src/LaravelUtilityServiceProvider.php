@@ -2,9 +2,9 @@
 
 namespace Rakhasa\LaravelUtility;
 
-use Rakhasa\LaravelUtility\Commands\LaravelUtilityCommand;
 use Rakhasa\LaravelUtility\Commands\MakeRepositoryCommand;
 use Rakhasa\LaravelUtility\Commands\MakeServiceCommand;
+use Rakhasa\LaravelUtility\Commands\SyncSettingCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -19,11 +19,12 @@ class LaravelUtilityServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-utility')
-            ->hasConfigFile()
+            ->hasConfigFile('setting')
+            ->hasConfigFile('permission')
             ->hasViews()
             ->hasTranslations()
-            ->hasMigration('create_files_table')
-            ->hasCommands([LaravelUtilityCommand::class, MakeRepositoryCommand::class, MakeServiceCommand::class]);
+            ->hasMigrations(['create_roles_table', 'create_files_table', 'create_settings_table'])
+            ->hasCommands([MakeRepositoryCommand::class, MakeServiceCommand::class, SyncSettingCommand::class]);
     }
 
     public function register()

@@ -24,10 +24,24 @@ abstract class BaseRepository implements BaseRepositoryContract
     protected Model $model;
 
     /**
-     * @return BaseRepository
+     * With
+     *
+     * @var $with
      */
     protected $with = null;
 
+    /**
+     * With Count
+     *
+     * @var $withCount
+     */
+    protected $withCount = null;
+
+    /**
+     * Actor Model
+     *
+     * @var Authenticatable|null
+     */
     protected ?Authenticatable $actor = null;
 
     /**
@@ -47,6 +61,10 @@ abstract class BaseRepository implements BaseRepositoryContract
 
         if ($this->with) {
             $builder->with($this->with);
+        }
+
+        if ($this->withCount) {
+            $builder->withCount($this->withCount);
         }
 
         return $builder;
@@ -73,6 +91,13 @@ abstract class BaseRepository implements BaseRepositoryContract
     public function with($with): BaseRepository
     {
         $this->with = $with;
+
+        return $this;
+    }
+
+    public function withCount($withCount): BaseRepository
+    {
+        $this->withCount = $withCount;
 
         return $this;
     }
