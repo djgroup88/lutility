@@ -27,6 +27,6 @@ return [
         //         'route' => 'member.dashboard',
         //         'group' => 'Home'
         //     ],
-        ]
+        // ]
     ]
 ];
