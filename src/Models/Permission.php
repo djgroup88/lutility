@@ -2,7 +2,6 @@
 
 namespace Rakhasa\Lutility\Models;
 
-use App\Models\Role;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
