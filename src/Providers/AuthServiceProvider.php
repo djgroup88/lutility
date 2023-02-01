@@ -5,7 +5,6 @@ namespace Rakhasa\Lutility\Providers;
 use Rakhasa\Lutility\Models\BasePermission;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Foundation\Auth\User;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -38,8 +37,8 @@ class AuthServiceProvider extends ServiceProvider
         foreach (BasePermission::all() as $permission) {
 
             foreach ($permission->actions as $action) {
-                Gate::define("{$action}-{$permission->name}", function (User $user) use ($permission, $action) {
-                    return $user->role->hasPermissionTo($permission->name, $action);
+                Gate::define("{$action}-{$permission->name}", function ($user) use ($permission, $action) {
+                    return $user->role ? $user->role->hasPermissionTo($permission->name, $action) : false;
                 });
             }
 

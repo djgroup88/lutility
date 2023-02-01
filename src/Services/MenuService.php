@@ -2,8 +2,6 @@
 
 namespace Rakhasa\Lutility\Services;
 
-use Illuminate\Database\Eloquent\Collection;
-
 class MenuService
 {
     /**
@@ -11,7 +9,7 @@ class MenuService
      *
      * @return Collection
      */
-    public function getAll(): Collection
+    public function getAll(): \Illuminate\Database\Eloquent\Collection
     {
         return config('menu.model')::get();
     }
@@ -21,7 +19,7 @@ class MenuService
      *
      * @return Collection
      */
-    public function getAuthorized(): Collection
+    public function getAuthorized(): \Illuminate\Support\Collection
     {
         if (!auth()->user()) {
             return collect([]);
