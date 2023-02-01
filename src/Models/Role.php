@@ -26,7 +26,7 @@ class Role extends Model
      */
     public function scopeSuperAdmin(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
     {
-        return $query->where('level', config('permission.role.level.superadmin'));
+        return $query->where('level', config('lutility.permission.role.level.superadmin'));
     }
 
     /**
@@ -37,7 +37,7 @@ class Role extends Model
      */
     public function scopeAdmin(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
     {
-        return $query->where('level', config('permission.role.level.admin'));
+        return $query->where('level', config('lutility.permission.role.level.admin'));
     }
 
     /**
@@ -48,7 +48,7 @@ class Role extends Model
      */
     public function scopeUser(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
     {
-        return $query->where('level', config('permission.role.level.user'));
+        return $query->where('level', config('lutility.permission.role.level.user'));
     }
 
     /**
@@ -58,6 +58,6 @@ class Role extends Model
      */
     public function isSuperAdmin(): bool
     {
-        return $this->level == config('permission.role.level.superadmin');
+        return $this->level == config('lutility.permission.role.level.superadmin');
     }
 }

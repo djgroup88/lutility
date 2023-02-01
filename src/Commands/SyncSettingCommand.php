@@ -34,12 +34,10 @@ class SyncSettingCommand extends Command
             Setting::truncate();
         }
 
-        foreach (config('setting.list') as $groups) {
+        foreach (config('lutility.setting.list') as $key => $value) {
 
-            foreach ($groups as $key => $value) {
-                Setting::firstOrCreate(['key' => $key], ['value' => $value[1]]);
-                $total++;
-            }
+            Setting::firstOrCreate(['key' => $key], ['value' => $value[1] ?? null]);
+            $total++;
 
         }
 

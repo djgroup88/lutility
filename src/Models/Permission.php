@@ -23,6 +23,6 @@ class Permission extends Model
      */
     public function role(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(config('permission.permission.model'));
+        return $this->belongsTo(config('lutility.permission.permission.model'));
     }
 }

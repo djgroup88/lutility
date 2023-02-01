@@ -36,7 +36,7 @@ class BasePermission extends Model
      */
     public function getRows()
     {
-        return collect(config('permission.permission.list'))->map(function($item) {
+        return collect(config('lutility.permission.permission.list'))->map(function($item) {
             $item['actions'] = json_encode($item['actions']);
             return $item;
         })->toArray();

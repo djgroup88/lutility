@@ -11,7 +11,7 @@ trait HasPermissions
      */
     public function permissions(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(config('permission.permission.model'));
+        return $this->hasMany(config('lutility.permission.permission.model'));
     }
 
     /**

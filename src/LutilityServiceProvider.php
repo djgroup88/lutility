@@ -19,9 +19,7 @@ class LutilityServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('lutility')
-            ->hasConfigFile('setting')
-            ->hasConfigFile('permission')
-            ->hasConfigFile('menu')
+            ->hasConfigFile()
             ->hasViews()
             ->hasTranslations()
             ->hasMigrations(['create_roles_table', 'create_permissions_table', 'create_files_table', 'create_settings_table'])

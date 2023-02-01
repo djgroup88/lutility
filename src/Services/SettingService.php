@@ -2,7 +2,9 @@
 
 namespace Rakhasa\Lutility\Services;
 
+use Rakhasa\Lutility\Enums\SettingTypeEnum;
 use ArrayAccess;
+use Illuminate\Support\Facades\Storage;
 use Rakhasa\Lutility\Models\Setting;
 
 class SettingService implements ArrayAccess
@@ -30,7 +32,7 @@ class SettingService implements ArrayAccess
     protected function source(): array
     {
         return Setting::all()->keyBy('key')->map(function($item) {
-            return $item->value;
+            return $this->formatValue($item->key, $item->value);
         })->toArray();
     }
 
@@ -109,10 +111,77 @@ class SettingService implements ArrayAccess
      *
      * @param string $key
      * @param mixed $value
-     * @return void
+     * @return bool
      */
-    public function put(string $key, mixed $value): void
+    public function put(string $key, mixed $value): bool
     {
+        if (is_null($value)) {
+            return false;
+        }
+
+        if ($this->getType($key) == SettingTypeEnum::Image) {
+            $disk = $this->getUploadDisk(SettingTypeEnum::Image->value);
+
+            Storage::disk($disk)->delete($this->offsetGet($key));
+
+            $value = $value->store('/', ['disk' => $disk]);
+        }
+
         $this->offsetSet($key, $value);
+
+        return Setting::where('key', $key)->update(['value' => $value]);
+    }
+
+    /**
+     * Get Setting Type
+     *
+     * @param string $key
+     * @return mixed
+     */
+    public function getType(string $key): mixed
+    {
+        return config('lutility.setting.list')[$key][0];
+    }
+
+    /**
+     * Update Multiple Setting
+     *
+     * @param array $data
+     * @return boolean
+     */
+    public function update(array $data): bool
+    {
+        foreach ($data as $key => $value) {
+            $this->put($key, $value);
+        }
+
+        return true;
+    }
+
+    /**
+     * Format Value
+     *
+     * @param string $key
+     * @param mixed $value
+     * @return mixed
+     */
+    protected function formatValue(string $key, mixed $value): mixed
+    {
+        if ($this->getType($key) == SettingTypeEnum::Image) {
+            $value = Storage::disk($this->getUploadDisk(SettingTypeEnum::Image->value))->url($value);
+        }
+
+        return $value;
+    }
+
+    /**
+     * Get Setting Upload Disk
+     *
+     * @param string $type
+     * @return string
+     */
+    public function getUploadDisk(string $type): string
+    {
+        return config('lutility.setting.upload_disk')[$type];
     }
 }

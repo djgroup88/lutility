@@ -11,7 +11,7 @@ class MenuService
      */
     public function getAll(): \Illuminate\Database\Eloquent\Collection
     {
-        return config('menu.model')::get();
+        return config('lutility.menu.model')::get();
     }
 
     /**
@@ -24,7 +24,6 @@ class MenuService
         if (!auth()->user()) {
             return collect([]);
         }
-
         return $this->getAll()->filter(function($item) {
             return auth()->user()->can($item->permission);
         });

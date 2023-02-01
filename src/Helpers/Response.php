@@ -41,7 +41,7 @@ class Response
      */
     public static function success(string $message = ''): \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
     {
-        $message = $message ?: __('utility::response.success');
+        $message = $message ?: __('lutility::response.success');
 
         return redirect()->route(self::$route, self::$param)->with('status', 'success')->with('message', $message);
     }
@@ -54,7 +54,7 @@ class Response
      */
     public static function error(string $message = ''): \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
     {
-        $message = $message ?: __('utility::response.error');
+        $message = $message ?: __('lutility::response.error');
 
         return redirect()->route(self::$route, self::$param)->with('status', 'error')->with('message', $message);
     }

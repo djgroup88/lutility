@@ -31,12 +31,12 @@ class Menu extends Model
      */
     public function getRows()
     {
-        $guards = config('menu.guards');
+        $guards = config('lutility.menu.guards');
 
         $menus = [];
 
         foreach ($guards as $guard => $model) {
-            foreach (config("menu.list.{$guard}") as $menu) {
+            foreach (config("lutility.menu.list.{$guard}") as $menu) {
                 $menu['model'] = $model;
                 $menu['permission'] = $menu['permission'] ?? null;
 
