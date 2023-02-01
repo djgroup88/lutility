@@ -122,7 +122,9 @@ class SettingService implements ArrayAccess
         if ($this->getType($key) == SettingTypeEnum::Image) {
             $disk = $this->getUploadDisk(SettingTypeEnum::Image->value);
 
-            Storage::disk($disk)->delete($this->offsetGet($key));
+            if ($this->offsetGet($key)) {
+                Storage::disk($disk)->delete($this->offsetGet($key));
+            }
 
             $value = $value->store('/', ['disk' => $disk]);
         }
