@@ -131,7 +131,11 @@ class SettingService implements ArrayAccess
 
         $this->offsetSet($key, $value);
 
-        return Setting::where('key', $key)->update(['value' => $value]);
+        Setting::updateOrCreate(['key' => $key], [
+            'value' => $value
+        ]);
+
+        return true;
     }
 
     /**

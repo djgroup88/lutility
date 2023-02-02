@@ -19,6 +19,13 @@ class Response
     private static $param;
 
     /**
+     * Redirect Back
+     *
+     * @var boolean
+     */
+    private static bool $back = false;
+
+    /**
      * Call Route
      *
      * @param  string  $route
@@ -34,6 +41,18 @@ class Response
     }
 
     /**
+     * Enable Redirect Back
+     *
+     * @return static
+     */
+    public static function back(): static
+    {
+        self::$back = true;
+
+        return new static();
+    }
+
+    /**
      * Success Response
      *
      * @param  string  $message
@@ -43,7 +62,7 @@ class Response
     {
         $message = $message ?: __('lutility::response.success');
 
-        return redirect()->route(self::$route, self::$param)->with('status', 'success')->with('message', $message);
+        return self::base('success', $message);
     }
 
     /**
@@ -56,6 +75,21 @@ class Response
     {
         $message = $message ?: __('lutility::response.error');
 
-        return redirect()->route(self::$route, self::$param)->with('status', 'error')->with('message', $message);
+        return self::base('error', $message);
+    }
+
+    /**
+     * Base Response
+     *
+     * @param string $status
+     * @param string $message
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     */
+    private static function base(string $status, string $message): \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+    {
+        if (self::$back) {
+            return back()->with('status', $status)->with('message', $message);
+        }
+        return redirect()->route(self::$route, self::$param)->with('status', $status)->with('message', $message);
     }
 }
