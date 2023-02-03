@@ -2,8 +2,9 @@
 
 namespace Rakhasa\Lutility\Concerns;
 
-use Rakhasa\Lutility\Contracts\Repositories\ProgressRepositoryContract;
+use Throwable;
 use Rakhasa\Lutility\Models\Progress;
+use Rakhasa\Lutility\Contracts\Repositories\ProgressRepositoryContract;
 
 trait ProgressableJob
 {
@@ -32,6 +33,17 @@ trait ProgressableJob
      */
     protected function completeProgress(): void
     {
-        $this->progress->setAsComplete();
+        $this->progress->setAsCompleted();
+    }
+
+    /**
+     * Handle a job failure.
+     *
+     * @param  \Throwable  $exception
+     * @return void
+     */
+    public function failed(Throwable $exception)
+    {
+        $this->progress->setAsFailed();
     }
 }
