@@ -2,19 +2,20 @@
 
 namespace Rakhasa\Lutility\Services;
 
-use Rakhasa\Lutility\Enums\SettingTypeEnum;
 use ArrayAccess;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Collection;
 use Rakhasa\Lutility\Models\Setting;
+use Illuminate\Support\Facades\Storage;
+use Rakhasa\Lutility\Enums\SettingTypeEnum;
 
 class SettingService implements ArrayAccess
 {
     /**
      * Container
      *
-     * @var array
+     * @var Collection
      */
-    private $container = [];
+    private Collection $container;
 
     /**
      * Construct
@@ -27,13 +28,13 @@ class SettingService implements ArrayAccess
     /**
      * Source
      *
-     * @return array
+     * @return Collection
      */
-    protected function source(): array
+    protected function source(): Collection
     {
         return Setting::all()->keyBy('key')->map(function($item) {
-            return $this->formatValue($item->key, $item->value);
-        })->toArray();
+            return $item->value;
+        });
     }
 
     /**
@@ -92,7 +93,9 @@ class SettingService implements ArrayAccess
      */
     public function all(): array
     {
-        return $this->container;
+        return $this->container->map(function($value, $key) {
+            return $this->formatValue($key, $value);
+        })->toArray();
     }
 
     /**
@@ -103,7 +106,7 @@ class SettingService implements ArrayAccess
      */
     public function get(string $key): mixed
     {
-        return $this->offsetGet($key);
+        return $this->formatValue($key, $this->offsetGet($key));
     }
 
     /**
@@ -119,7 +122,7 @@ class SettingService implements ArrayAccess
             return false;
         }
 
-        if ($this->getType($key) == SettingTypeEnum::Image) {
+        if ($this->getType($key) == SettingTypeEnum::Image && !$this->isUrl($value)) {
             $disk = $this->getUploadDisk(SettingTypeEnum::Image->value);
 
             if ($this->offsetGet($key)) {
@@ -173,11 +176,22 @@ class SettingService implements ArrayAccess
      */
     protected function formatValue(string $key, mixed $value): mixed
     {
-        if ($this->getType($key) == SettingTypeEnum::Image) {
+        if ($this->getType($key) == SettingTypeEnum::Image && !$this->isUrl($value)) {
             $value = Storage::disk($this->getUploadDisk(SettingTypeEnum::Image->value))->url($value);
         }
 
         return $value;
+    }
+
+    /**
+     * Check if Value is valid URL
+     *
+     * @param string $value
+     * @return boolean
+     */
+    protected function isUrl(string $value): bool
+    {
+        return preg_match('/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i', $value);
     }
 
     /**
