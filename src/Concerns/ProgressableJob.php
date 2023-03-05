@@ -3,6 +3,7 @@
 namespace Rakhasa\Lutility\Concerns;
 
 use Throwable;
+use Illuminate\Support\Facades\Log;
 use Rakhasa\Lutility\Models\Progress;
 use Rakhasa\Lutility\Contracts\Repositories\ProgressRepositoryContract;
 
@@ -44,6 +45,8 @@ trait ProgressableJob
      */
     public function failed(Throwable $exception)
     {
+        Log::error($exception->getMessage());
+
         $this->progress->setAsFailed();
     }
 }
