@@ -3,8 +3,8 @@
 namespace Rakhasa\Lutility\Contracts\Repositories;
 
 use Closure;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 interface BaseRepositoryContract
 {
@@ -109,4 +109,11 @@ interface BaseRepositoryContract
      * @return self
      */
     public function actingAs(\Illuminate\Contracts\Auth\Authenticatable $actor): self;
+
+    /**
+     * Count Query
+     *
+     * @return integer
+     */
+    public function count(): int;
 }

@@ -2,16 +2,16 @@
 
 namespace Rakhasa\Lutility\Repositories;
 
-use BadMethodCallException;
 use Exception;
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
+use BadMethodCallException;
+use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Traits\ForwardsCalls;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Rakhasa\Lutility\Contracts\Repositories\BaseRepositoryContract;
 
 abstract class BaseRepository implements BaseRepositoryContract
@@ -392,5 +392,13 @@ abstract class BaseRepository implements BaseRepositoryContract
         $this->actor = $actor;
 
         return $this;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function count(): int
+    {
+        return $this->query()->count();
     }
 }
