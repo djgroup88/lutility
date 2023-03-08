@@ -38,6 +38,20 @@ abstract class BaseRepository implements BaseRepositoryContract
     protected $withCount = null;
 
     /**
+     * With Trashed
+     *
+     * @var boolean
+     */
+    protected $withTrashed = false;
+
+    /**
+     * Only Trashed
+     *
+     * @var boolean
+     */
+    protected $onlyTrashed = false;
+
+    /**
      * Actor Model
      *
      * @var Authenticatable|null
@@ -65,6 +79,14 @@ abstract class BaseRepository implements BaseRepositoryContract
 
         if ($this->withCount) {
             $builder->withCount($this->withCount);
+        }
+
+        if ($this->withTrashed) {
+            $builder->withTrashed();
+        }
+
+        if ($this->onlyTrashed) {
+            $builder->onlyTrashed();
         }
 
         return $builder;
@@ -400,5 +422,27 @@ abstract class BaseRepository implements BaseRepositoryContract
     public function count(): int
     {
         return $this->query()->count();
+    }
+
+    /**
+     * Get Data With Trashed
+     *
+     * @return self
+     */
+    public function withTrashed(): self
+    {
+        $this->withTrashed = true;
+        return $this;
+    }
+
+    /**
+     * Get Data Only Trashed
+     *
+     * @return self
+     */
+    public function onlyTrashed(): self
+    {
+        $this->onlyTrashed = true;
+        return $this;
     }
 }
