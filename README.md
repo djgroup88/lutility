@@ -1,24 +1,22 @@
-# This is my package lutility
+# LUTILITY
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/rakhasa/lutility.svg?style=flat-square)](https://packagist.org/packages/rakhasa/lutility)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/rakhasa/lutility/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/rakhasa/lutility/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/rakhasa/lutility/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/rakhasa/lutility/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/rakhasa/lutility.svg?style=flat-square)](https://packagist.org/packages/rakhasa/lutility)
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/lutility.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/lutility)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+This package laravel utility (lutility) contain utilities that cover feature like menu, permission, role, repository, and others.
 
 ## Installation
 
 You can install the package via composer:
 
+Add git source repository to `composer.json`:
+```
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://git.rakhasa.com/rakhasa/lutility.git"
+    }
+],
+```
+
+Start installing the package:
 ```bash
 composer require rakhasa/lutility
 ```
@@ -40,26 +38,77 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'permission' => [
+
+        /*
+        |--------------------------------------------------------------------------
+        | Role
+        |--------------------------------------------------------------------------
+        |
+        | This value contain the role configuration of the application. You can
+        | determine value like model, level and many more configuration.
+        |
+        */
+
+        'role' => [
+            'model' => \Rakhasa\Lutility\Models\Role::class,
+            'level' => [
+                'superadmin' => 1,
+                'admin' => 2,
+                'user' => 3
+            ],
+        ],
+
+        /*
+        |--------------------------------------------------------------------------
+        | Permission
+        |--------------------------------------------------------------------------
+        |
+        | This value contain the permission configuration of the application.
+        | determine value like model, list permission, and other config.
+        |
+        */
+
+        'permission' => [
+            'model' => \Rakhasa\Lutility\Models\Permission::class,
+            'list' => [
+                [
+                    'name' => 'profile',
+                    'alias' => 'Profile',
+                    'actions' => ['read', 'update'],
+                ],
+                [
+                    'name' => 'user',
+                    'alias' => 'User',
+                    'actions' => ['create', 'read', 'update', 'delete', 'restore', 'manage_all']
+                ]
+            ]
+        ]
+    ],
+
+    'setting'  => [
+        'list' => [
+            'general' => [
+                'site_name' => [SettingTypeEnum::String, env('APP_NAME', 'Laravel')],
+                'site_logo' => [SettingTypeEnum::Image],
+                'favicon' => [SettingTypeEnum::Image],
+            ]
+        ]
+    ],
+
+    'menu' => [
+        'model' => \Rakhasa\Lutility\Models\Menu::class,
+
+        'guards' => [
+            'user' => \App\Models\User::class,
+        ],
+
+        'list' => [
+            'user' => [
+            ],
+        ]
+    ],
 ];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="lutility-views"
-```
-
-## Usage
-
-```php
-$laravelUtility = new Rakhasa\Lutility();
-echo $laravelUtility->echoPhrase('Hello, Rakhasa!');
-```
-
-## Testing
-
-```bash
-composer test
 ```
 
 ## Changelog
