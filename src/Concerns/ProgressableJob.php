@@ -1,11 +1,11 @@
 <?php
 
-namespace Rakhasa\Lutility\Concerns;
+namespace Kastanaz\Lutility\Concerns;
 
 use Throwable;
 use Illuminate\Support\Facades\Log;
-use Rakhasa\Lutility\Models\Progress;
-use Rakhasa\Lutility\Contracts\Repositories\ProgressRepositoryContract;
+use Kastanaz\Lutility\Models\Progress;
+use Kastanaz\Lutility\Contracts\Repositories\ProgressRepositoryContract;
 
 trait ProgressableJob
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Rakhasa\Lutility;
+namespace Kastanaz\Lutility;
 
 use Spatie\LaravelPackageTools\Package;
-use Rakhasa\Lutility\Commands\MakeServiceCommand;
-use Rakhasa\Lutility\Commands\SyncSettingCommand;
-use Rakhasa\Lutility\Commands\ProgressClearComamnd;
-use Rakhasa\Lutility\Commands\MakeRepositoryCommand;
+use Kastanaz\Lutility\Commands\MakeServiceCommand;
+use Kastanaz\Lutility\Commands\SyncSettingCommand;
+use Kastanaz\Lutility\Commands\ProgressClearComamnd;
+use Kastanaz\Lutility\Commands\MakeRepositoryCommand;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class LutilityServiceProvider extends PackageServiceProvider

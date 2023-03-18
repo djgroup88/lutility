@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\Lutility\Services;
+namespace Kastanaz\Lutility\Services;
 
 class MenuService
 {

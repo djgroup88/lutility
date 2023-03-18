@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\Lutility;
+namespace Kastanaz\Lutility;
 
 class Lutility
 {

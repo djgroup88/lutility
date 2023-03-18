@@ -1,8 +1,8 @@
 <?php
 
-namespace Rakhasa\Lutility\Concerns;
+namespace Kastanaz\Lutility\Concerns;
 
-use Rakhasa\Lutility\Models\Progress;
+use Kastanaz\Lutility\Models\Progress;
 
 trait ProgressableModel
 {

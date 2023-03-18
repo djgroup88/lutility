@@ -1,9 +1,9 @@
 <?php
 
-namespace Rakhasa\Lutility\Commands;
+namespace Kastanaz\Lutility\Commands;
 
 use Illuminate\Console\Command;
-use Rakhasa\Lutility\Contracts\Repositories\ProgressRepositoryContract;
+use Kastanaz\Lutility\Contracts\Repositories\ProgressRepositoryContract;
 
 class ProgressClearComamnd extends Command
 {

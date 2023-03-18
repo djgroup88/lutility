@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\Lutility\Models;
+namespace Kastanaz\Lutility\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

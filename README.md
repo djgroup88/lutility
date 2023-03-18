@@ -11,14 +11,14 @@ Add git source repository to `composer.json`:
 "repositories": [
     {
         "type": "vcs",
-        "url": "https://git.rakhasa.com/rakhasa/lutility.git"
+        "url": "https://github.com/kastanaz/lutility.git"
     }
 ],
 ```
 
 Start installing the package:
 ```bash
-composer require rakhasa/lutility
+composer require kastanaz/lutility
 ```
 
 You can publish and run the migrations with:
@@ -51,7 +51,7 @@ return [
         */
 
         'role' => [
-            'model' => \Rakhasa\Lutility\Models\Role::class,
+            'model' => \Kastanaz\Lutility\Models\Role::class,
             'level' => [
                 'superadmin' => 1,
                 'admin' => 2,
@@ -70,7 +70,7 @@ return [
         */
 
         'permission' => [
-            'model' => \Rakhasa\Lutility\Models\Permission::class,
+            'model' => \Kastanaz\Lutility\Models\Permission::class,
             'list' => [
                 [
                     'name' => 'profile',
@@ -97,7 +97,7 @@ return [
     ],
 
     'menu' => [
-        'model' => \Rakhasa\Lutility\Models\Menu::class,
+        'model' => \Kastanaz\Lutility\Models\Menu::class,
 
         'guards' => [
             'user' => \App\Models\User::class,
@@ -125,7 +125,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [rakhasa](https://github.com/rakhasa)
+- [kastanaz](https://github.com/kastanaz)
 - [All Contributors](../../contributors)
 
 ## License

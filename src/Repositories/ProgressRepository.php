@@ -1,11 +1,11 @@
 <?php
 
-namespace Rakhasa\Lutility\Repositories;
+namespace Kastanaz\Lutility\Repositories;
 
-use Rakhasa\Lutility\Models\Progress;
-use Rakhasa\Lutility\Repositories\BaseRepository;
+use Kastanaz\Lutility\Models\Progress;
+use Kastanaz\Lutility\Repositories\BaseRepository;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Rakhasa\Lutility\Contracts\Repositories\ProgressRepositoryContract;
+use Kastanaz\Lutility\Contracts\Repositories\ProgressRepositoryContract;
 
 class ProgressRepository extends BaseRepository implements ProgressRepositoryContract
 {

@@ -1,6 +1,6 @@
 <?php
 
-use Rakhasa\Lutility\Enums\SettingTypeEnum;
+use Kastanaz\Lutility\Enums\SettingTypeEnum;
 
 return [
     'permission' => [
@@ -16,7 +16,7 @@ return [
         */
 
         'role' => [
-            'model' => \Rakhasa\Lutility\Models\Role::class,
+            'model' => \Kastanaz\Lutility\Models\Role::class,
             'level' => [
                 'superadmin' => 1,
                 'admin' => 2,
@@ -35,7 +35,7 @@ return [
         */
 
         'permission' => [
-            'model' => \Rakhasa\Lutility\Models\Permission::class,
+            'model' => \Kastanaz\Lutility\Models\Permission::class,
             'list' => [
                 [
                     'name' => 'profile',
@@ -62,7 +62,7 @@ return [
     ],
 
     'menu' => [
-        'model' => \Rakhasa\Lutility\Models\Menu::class,
+        'model' => \Kastanaz\Lutility\Models\Menu::class,
 
         'guards' => [
             'user' => \App\Models\User::class,

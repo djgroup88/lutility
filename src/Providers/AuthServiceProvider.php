@@ -1,8 +1,8 @@
 <?php
 
-namespace Rakhasa\Lutility\Providers;
+namespace Kastanaz\Lutility\Providers;
 
-use Rakhasa\Lutility\Models\BasePermission;
+use Kastanaz\Lutility\Models\BasePermission;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
