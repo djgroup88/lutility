@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\Lutility\Commands;
+namespace Kastanaz\Lutility\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 

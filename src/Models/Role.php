@@ -1,11 +1,11 @@
 <?php
 
-namespace Rakhasa\Lutility\Models;
+namespace Kastanaz\Lutility\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Rakhasa\Lutility\Concerns\HasPermissions;
-use Rakhasa\Lutility\Concerns\HasPackageFactory;
+use Kastanaz\Lutility\Concerns\HasPermissions;
+use Kastanaz\Lutility\Concerns\HasPackageFactory;
 
 class Role extends Model
 {

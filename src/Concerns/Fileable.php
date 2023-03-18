@@ -1,11 +1,11 @@
 <?php
 
-namespace Rakhasa\Lutility\Concerns;
+namespace Kastanaz\Lutility\Concerns;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use Rakhasa\Lutility\Models\File;
+use Kastanaz\Lutility\Models\File;
 
 trait Fileable
 {

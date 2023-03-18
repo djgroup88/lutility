@@ -1,9 +1,9 @@
 <?php
 
-namespace Rakhasa\Lutility\Commands;
+namespace Kastanaz\Lutility\Commands;
 
 use Illuminate\Console\Command;
-use Rakhasa\Lutility\Models\Setting;
+use Kastanaz\Lutility\Models\Setting;
 
 class SyncSettingCommand extends Command
 {

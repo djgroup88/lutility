@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\Lutility\Contracts\Repositories;
+namespace Kastanaz\Lutility\Contracts\Repositories;
 
 use Closure;
 use Illuminate\Support\Collection;

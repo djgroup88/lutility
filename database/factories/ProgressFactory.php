@@ -1,9 +1,9 @@
 <?php
 
-namespace Rakhasa\Lutility\Database\Factories;
+namespace Kastanaz\Lutility\Database\Factories;
 
 use Illuminate\Support\Str;
-use Rakhasa\Lutility\Models\Progress;
+use Kastanaz\Lutility\Models\Progress;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProgressFactory extends Factory

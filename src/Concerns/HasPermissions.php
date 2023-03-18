@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\Lutility\Concerns;
+namespace Kastanaz\Lutility\Concerns;
 
 trait HasPermissions
 {

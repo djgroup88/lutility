@@ -1,12 +1,12 @@
 <?php
 
-namespace Rakhasa\Lutility\Services;
+namespace Kastanaz\Lutility\Services;
 
 use ArrayAccess;
 use Illuminate\Support\Collection;
-use Rakhasa\Lutility\Models\Setting;
+use Kastanaz\Lutility\Models\Setting;
 use Illuminate\Support\Facades\Storage;
-use Rakhasa\Lutility\Enums\SettingTypeEnum;
+use Kastanaz\Lutility\Enums\SettingTypeEnum;
 
 class SettingService implements ArrayAccess
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\Lutility\Providers;
+namespace Kastanaz\Lutility\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -17,8 +17,8 @@ class RepositoryServiceProvider extends ServiceProvider
          * Progress Repository
          */
         $this->app->bind(
-            \Rakhasa\Lutility\Contracts\Repositories\ProgressRepositoryContract::class,
-            \Rakhasa\Lutility\Repositories\ProgressRepository::class
+            \Kastanaz\Lutility\Contracts\Repositories\ProgressRepositoryContract::class,
+            \Kastanaz\Lutility\Repositories\ProgressRepository::class
         );
     }
 

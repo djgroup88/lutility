@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\Lutility\Http\Resources;
+namespace Kastanaz\Lutility\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 

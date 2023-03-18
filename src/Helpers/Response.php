@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\Lutility\Helpers;
+namespace Kastanaz\Lutility\Helpers;
 
 class Response
 {

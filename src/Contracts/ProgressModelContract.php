@@ -1,8 +1,8 @@
 <?php
 
-namespace Rakhasa\Lutility\Contracts;
+namespace Kastanaz\Lutility\Contracts;
 
-use Rakhasa\Lutility\Models\Progress;
+use Kastanaz\Lutility\Models\Progress;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 interface ProgressModelContract

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\Lutility\Enums;
+namespace Kastanaz\Lutility\Enums;
 
 /**
  * Progress Status

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\Lutility\Repositories;
+namespace Kastanaz\Lutility\Repositories;
 
 use Exception;
 use BadMethodCallException;
@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Traits\ForwardsCalls;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Rakhasa\Lutility\Contracts\Repositories\BaseRepositoryContract;
+use Kastanaz\Lutility\Contracts\Repositories\BaseRepositoryContract;
 
 abstract class BaseRepository implements BaseRepositoryContract
 {

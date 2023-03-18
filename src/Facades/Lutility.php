@@ -1,16 +1,16 @@
 <?php
 
-namespace Rakhasa\Lutility\Facades;
+namespace Kastanaz\Lutility\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Rakhasa\Lutility\Lutility
+ * @see \Kastanaz\Lutility\Lutility
  */
 class Lutility extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Rakhasa\Lutility\Lutility::class;
+        return \Kastanaz\Lutility\Lutility::class;
     }
 }

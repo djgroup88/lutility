@@ -1,12 +1,12 @@
 <?php
 
-namespace Rakhasa\Lutility\Models;
+namespace Kastanaz\Lutility\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Rakhasa\Lutility\Enums\ProgressStatusEnum;
-use Rakhasa\Lutility\Concerns\HasPackageFactory;
+use Kastanaz\Lutility\Enums\ProgressStatusEnum;
+use Kastanaz\Lutility\Concerns\HasPackageFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Rakhasa\Lutility\Contracts\ProgressModelContract;
+use Kastanaz\Lutility\Contracts\ProgressModelContract;
 
 class Progress extends Model
 {

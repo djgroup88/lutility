@@ -1,6 +1,6 @@
 <?php
 
-namespace Rakhasa\Lutility\Contracts;
+namespace Kastanaz\Lutility\Contracts;
 
 interface ProgressJobContract
 {
