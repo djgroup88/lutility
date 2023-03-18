@@ -1,17 +1,17 @@
 {
-    "name": "rakhasa/lutility",
+    "name": "kastanaz/lutility",
     "description": "This is my package lutility",
     "keywords": [
-        "rakhasa",
+        "kastanaz",
         "laravel",
         "lutility"
     ],
-    "homepage": "https://github.com/rakhasa/lutility",
+    "homepage": "https://github.com/kastanaz/lutility",
     "license": "MIT",
     "authors": [
         {
-            "name": "rakhasa",
-            "email": "arnal@rakhasa.com",
+            "name": "kastanaz",
+            "email": "ahmatarnal@gmail.com",
             "role": "Developer"
         }
     ],
@@ -33,13 +33,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Rakhasa\\Lutility\\": "src",
-            "Rakhasa\\Lutility\\Database\\Factories\\": "database/factories"
+            "Kastanaz\\Lutility\\": "src",
+            "Kastanaz\\Lutility\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rakhasa\\Lutility\\Tests\\": "tests"
+            "Kastanaz\\Lutility\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -56,10 +56,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Rakhasa\\Lutility\\LutilityServiceProvider"
+                "Kastanaz\\Lutility\\LutilityServiceProvider"
             ],
             "aliases": {
-                "Lutility": "Rakhasa\\Lutility\\Facades\\Lutility"
+                "Lutility": "Kastanaz\\Lutility\\Facades\\Lutility"
             }
         }
     },
