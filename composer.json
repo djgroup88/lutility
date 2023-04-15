@@ -35,7 +35,10 @@
         "psr-4": {
             "Kastanaz\\Lutility\\": "src",
             "Kastanaz\\Lutility\\Database\\Factories\\": "database/factories"
-        }
+        },
+        "files": [
+            "helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
