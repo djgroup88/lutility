@@ -118,10 +118,6 @@ class SettingService implements ArrayAccess
      */
     public function put(string $key, mixed $value): bool
     {
-        if (is_null($value)) {
-            return false;
-        }
-
         if ($this->getType($key) == SettingTypeEnum::Image && !$this->isUrl($value)) {
             $disk = $this->getUploadDisk(SettingTypeEnum::Image->value);
 
