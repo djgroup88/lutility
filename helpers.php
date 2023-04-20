@@ -25,7 +25,7 @@ use Facades\Kastanaz\Lutility\Services\SettingService;
      {
         if (is_array($value)) {
             if ($value['type'] == 'route') {
-                $value = route($value['route'], $value['params']);
+                $value = route($value['route'], $value['params'] ?? []);
             }
         }
 
