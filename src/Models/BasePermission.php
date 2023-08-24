@@ -41,4 +41,15 @@ class BasePermission extends Model
             return $item;
         })->toArray();
     }
+
+    /**
+     * Check if permission has action
+     *
+     * @param string $action
+     * @return boolean
+     */
+    public function hasAction(string $action): bool
+    {
+        return in_array($action, $this->actions);
+    }
 }

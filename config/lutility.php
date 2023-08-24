@@ -52,12 +52,14 @@ return [
     ],
 
     'setting'  => [
+        'upload_disk' => [
+            'image' => 'public'
+        ],
+
         'list' => [
-            'general' => [
-                'site_name' => [SettingTypeEnum::String, env('APP_NAME', 'Laravel')],
-                'site_logo' => [SettingTypeEnum::Image],
-                'favicon' => [SettingTypeEnum::Image],
-            ]
+            'site_name' => [SettingTypeEnum::String, env('APP_NAME', 'Laravel')],
+            'site_logo' => [SettingTypeEnum::Image],
+            'favicon' => [SettingTypeEnum::Image],
         ]
     ],
 

@@ -118,10 +118,6 @@ class SettingService implements ArrayAccess
      */
     public function put(string $key, mixed $value): bool
     {
-        if (is_null($value)) {
-            return false;
-        }
-
         if ($this->getType($key) == SettingTypeEnum::Image && !$this->isUrl($value)) {
             $disk = $this->getUploadDisk(SettingTypeEnum::Image->value);
 
@@ -176,7 +172,7 @@ class SettingService implements ArrayAccess
      */
     protected function formatValue(string $key, mixed $value): mixed
     {
-        if ($this->getType($key) == SettingTypeEnum::Image && !$this->isUrl($value)) {
+        if ($this->getType($key) == SettingTypeEnum::Image && ($value && !$this->isUrl($value))) {
             $value = Storage::disk($this->getUploadDisk(SettingTypeEnum::Image->value))->url($value);
         }
 
