@@ -7,6 +7,8 @@ use Illuminate\Support\Collection;
 use Kastanaz\Lutility\Models\Setting;
 use Illuminate\Support\Facades\Storage;
 use Kastanaz\Lutility\Enums\SettingTypeEnum;
+use Kastanaz\Lutility\UploadHandlers\GlobalFileUpload;
+use Kastanaz\Lutility\UploadHandlers\ImageFileUpload;
 
 class SettingService implements ArrayAccess
 {
@@ -119,13 +121,30 @@ class SettingService implements ArrayAccess
     public function put(string $key, mixed $value): bool
     {
         if ($this->getType($key) == SettingTypeEnum::Image && !$this->isUrl($value)) {
-            $disk = $this->getUploadDisk(SettingTypeEnum::Image->value);
+            $value = ImageFileUpload::upload($value, $this->offsetGet($key));
+        }
 
-            if ($this->offsetGet($key)) {
-                Storage::disk($disk)->delete($this->offsetGet($key));
-            }
+        if ($this->getType($key) == SettingTypeEnum::File) {
+            $value = GlobalFileUpload::upload($value, $this->offsetGet($key));
+        }
 
-            $value = $value->store('/', ['disk' => $disk]);
+        $this->offsetSet($key, $value);
+
+        Setting::updateOrCreate(['key' => $key], [
+            'value' => $value
+        ]);
+
+        return true;
+    }
+
+    public function storeAs(string $key, mixed $value, string $name): bool
+    {
+        if ($this->getType($key) == SettingTypeEnum::Image && !$this->isUrl($value)) {
+            $value = ImageFileUpload::uploadAs($value, $this->offsetGet($key), $name);
+        }
+
+        if ($this->getType($key) == SettingTypeEnum::File) {
+            $value = GlobalFileUpload::uploadAs($value, $this->offsetGet($key), $name);
         }
 
         $this->offsetSet($key, $value);
@@ -174,6 +193,10 @@ class SettingService implements ArrayAccess
     {
         if ($this->getType($key) == SettingTypeEnum::Image && ($value && !$this->isUrl($value))) {
             $value = Storage::disk($this->getUploadDisk(SettingTypeEnum::Image->value))->url($value);
+        }
+
+        if ($this->getType($key) == SettingTypeEnum::File && $value) {
+            $value = Storage::disk($this->getUploadDisk(SettingTypeEnum::File->value))->url($value);
         }
 
         return $value;
