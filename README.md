@@ -11,9 +11,11 @@ Add git source repository to `composer.json`:
 "repositories": [
     {
         "type": "vcs",
-        "url": "https://github.com/kastanaz/lutility.git"
+        "url": "https://github.com/djgroup88/lutility.git"
     }
 ],
+"minimum-stability": "dev",
+"prefer-stable": true
 ```
 
 Start installing the package:
