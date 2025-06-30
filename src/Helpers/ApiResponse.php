@@ -25,18 +25,18 @@ class ApiResponse
     /**
      * Base of json response
      *
-     * @param  string  $message
-     * @param  bool  $status
-     * @param  mixed  $data
-     * @param  int  $statusCode
+     * @param string $message
+     * @param [type] $data
+     * @param integer $statusCode
+     * @param array $errors
      * @return JsonResponse
      */
-    private static function base(string $message, bool $status, $data, int $statusCode): JsonResponse
+    protected static function base(string $message, $data, int $statusCode, array $errors = []): JsonResponse
     {
         return response()->json([
-            'status' => $status,
-            'data' => $data,
             'message' => $message,
+            'data' => $data,
+            'errors' => $errors,
         ], $statusCode);
     }
 
@@ -47,11 +47,11 @@ class ApiResponse
      * @param  mixed  $data
      * @return JsonResponse
      */
-    public static function success(string $message = '', $data = null): JsonResponse
+    public static function success(string $message = '', $data = null, array $errors = []): JsonResponse
     {
         $message = $message ?: __('lutility::response.success');
 
-        return self::base($message, true, $data, self::$code['success']);
+        return self::base($message, $data, self::$code['success'], $errors);
     }
 
     /**
@@ -61,11 +61,11 @@ class ApiResponse
      * @param  mixed  $data
      * @return JsonResponse
      */
-    public static function created(string $message = '', $data = null): JsonResponse
+    public static function created(string $message = '', $data = null, array $errors = []): JsonResponse
     {
         $message = $message ?: __('lutility::response.created');
 
-        return self::base($message, true, $data, self::$code['created']);
+        return self::base($message, $data, self::$code['created'], $errors);
     }
 
     /**
@@ -75,11 +75,11 @@ class ApiResponse
      * @param  mixed  $data
      * @return JsonResponse
      */
-    public static function badRequest(string $message = '', $data = null): JsonResponse
+    public static function badRequest(string $message = '', $data = null, array $errors = []): JsonResponse
     {
         $message = $message ?: __('lutility::response.bad_request');
 
-        return self::base($message, false, $data, self::$code['bad_request']);
+        return self::base($message, $data, self::$code['bad_request'], $errors);
     }
 
     /**
@@ -89,11 +89,11 @@ class ApiResponse
      * @param  mixed  $data
      * @return JsonResponse
      */
-    public static function unauthorized(string $message = '', $data = null): JsonResponse
+    public static function unauthorized(string $message = '', $data = null, array $errors = []): JsonResponse
     {
         $message = $message ?: __('lutility::response.unauthorized');
 
-        return self::base($message, false, $data, self::$code['unauthorized']);
+        return self::base($message, $data, self::$code['unauthorized'], $errors);
     }
 
     /**
@@ -103,11 +103,11 @@ class ApiResponse
      * @param  mixed  $data
      * @return JsonResponse
      */
-    public static function forbidden(string $message = '', $data = null): JsonResponse
+    public static function forbidden(string $message = '', $data = null, array $errors = []): JsonResponse
     {
         $message = $message ?: __('lutility::response.forbidden');
 
-        return self::base($message, false, $data, self::$code['forbidden']);
+        return self::base($message, $data, self::$code['forbidden'], $errors);
     }
 
     /**
@@ -117,11 +117,11 @@ class ApiResponse
      * @param  mixed  $data
      * @return JsonResponse
      */
-    public static function notFound(string $message = '', $data = null): JsonResponse
+    public static function notFound(string $message = '', $data = null, array $errors = []): JsonResponse
     {
         $message = $message ?: __('lutility::response.not_found');
 
-        return self::base($message, false, $data, self::$code['not_found']);
+        return self::base($message, $data, self::$code['not_found'], $errors);
     }
 
     /**
@@ -131,11 +131,11 @@ class ApiResponse
      * @param  mixed  $data
      * @return JsonResponse
      */
-    public static function unprocessableEntity(string $message = '', $data = null): JsonResponse
+    public static function unprocessableEntity(string $message = '', $data = null, array $errors = []): JsonResponse
     {
         $message = $message ?: __('lutility::response.unprocessable_entity');
 
-        return self::base($message, false, $data, self::$code['unprocessable_entity']);
+        return self::base($message, $data, self::$code['unprocessable_entity'], $errors);
     }
 
     /**
@@ -145,10 +145,10 @@ class ApiResponse
      * @param  mixed  $data
      * @return JsonResponse
      */
-    public static function serverError(string $message = '', $data = null): JsonResponse
+    public static function serverError(string $message = '', $data = null, array $errors = []): JsonResponse
     {
         $message = $message ?: __('lutility::response.internal_server_error');
 
-        return self::base($message, false, $data, self::$code['internal_server_error']);
+        return self::base($message, $data, self::$code['internal_server_error'], $errors);
     }
 }
