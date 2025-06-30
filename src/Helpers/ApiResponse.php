@@ -49,7 +49,7 @@ class ApiResponse
      */
     public static function success(string $message = '', $data = null): JsonResponse
     {
-        $message = $message ?: __('utility::response.success');
+        $message = $message ?: __('lutility::response.success');
 
         return self::base($message, true, $data, self::$code['success']);
     }
@@ -63,7 +63,7 @@ class ApiResponse
      */
     public static function created(string $message = '', $data = null): JsonResponse
     {
-        $message = $message ?: __('utility::response.created');
+        $message = $message ?: __('lutility::response.created');
 
         return self::base($message, true, $data, self::$code['created']);
     }
@@ -77,7 +77,7 @@ class ApiResponse
      */
     public static function badRequest(string $message = '', $data = null): JsonResponse
     {
-        $message = $message ?: __('utility::response.bad_request');
+        $message = $message ?: __('lutility::response.bad_request');
 
         return self::base($message, false, $data, self::$code['bad_request']);
     }
@@ -91,7 +91,7 @@ class ApiResponse
      */
     public static function unauthorized(string $message = '', $data = null): JsonResponse
     {
-        $message = $message ?: __('utility::response.unauthorized');
+        $message = $message ?: __('lutility::response.unauthorized');
 
         return self::base($message, false, $data, self::$code['unauthorized']);
     }
@@ -105,7 +105,7 @@ class ApiResponse
      */
     public static function forbidden(string $message = '', $data = null): JsonResponse
     {
-        $message = $message ?: __('utility::response.forbidden');
+        $message = $message ?: __('lutility::response.forbidden');
 
         return self::base($message, false, $data, self::$code['forbidden']);
     }
@@ -119,7 +119,7 @@ class ApiResponse
      */
     public static function notFound(string $message = '', $data = null): JsonResponse
     {
-        $message = $message ?: __('utility::response.not_found');
+        $message = $message ?: __('lutility::response.not_found');
 
         return self::base($message, false, $data, self::$code['not_found']);
     }
@@ -133,7 +133,7 @@ class ApiResponse
      */
     public static function unprocessableEntity(string $message = '', $data = null): JsonResponse
     {
-        $message = $message ?: __('utility::response.unprocessable_entity');
+        $message = $message ?: __('lutility::response.unprocessable_entity');
 
         return self::base($message, false, $data, self::$code['unprocessable_entity']);
     }
@@ -147,7 +147,7 @@ class ApiResponse
      */
     public static function serverError(string $message = '', $data = null): JsonResponse
     {
-        $message = $message ?: __('utility::response.internal_server_error');
+        $message = $message ?: __('lutility::response.internal_server_error');
 
         return self::base($message, false, $data, self::$code['internal_server_error']);
     }
